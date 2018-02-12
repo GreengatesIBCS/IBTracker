@@ -1,16 +1,30 @@
+
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>IB Tracker Home</h1>
+    <p>Welcome to IB Tracker a web site that will help you with revise and keep track of your IB. IN here you will find exercises videos, notes, and the syllabus of different subjects. Login to try it.</p>
+<p>
+{% if subject %}
+    there are {{ subject|length }} Subjects:<br/>
+    <ul>
+    {% for aSubject in subject %}
+    <li> {{ aSubject.subject_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    There are no records in the system
+{% endif %}
+</p>
 
-  <p>Welcome to <em>IB Tracker</em>, a tool for IB students to keep pace with their own courses.</p>
-
-<h2>Dynamic content</h2>
-
-  <p>The tracker has the following subjects available:</p>
-  <ul>
-    <li><strong>Subjects:</strong> {{ num_subjects }}</li>
-    <li><strong>Topics:</strong> {{ num_topics }}</li>
-  </ul>
-
+{% if topics %}
+    there are {{ topics|length }} records:<br/>
+    <ul>
+    {% for aTopic in topics %}
+        <li> {{ aTopic.topic_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    There are no records in the system
+{% endif %}
+</p>
 {% endblock %}
