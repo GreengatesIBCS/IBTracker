@@ -1,16 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myApp</title>
+</head>
+<body>
+<p> Hello world</p>
+
+</body>
+</html>
+
 {% extends "base_generic.html" %}
 
 {% block content %}
+<h1>This is my first page</h1>
 <h1>IB Tracker Home</h1>
+    <p> Welcome to <em> IB Tracker</em>, a tool for IB students to keep pace with their own courses
+<h2> Dynamic content </h2>
+    <p> The tracker has the following subjects available:</p>
 
-  <p>Welcome to <em>IB Tracker</em>, a tool for IB students to keep pace with their own courses.</p>
+    {{ num_topics }} {{ num_subjects }}{{ subject_name }} {{ Login }} {{ Support }}
 
-<h2>Dynamic content</h2>
 
-  <p>The tracker has the following subjects available:</p>
-  <ul>
-    <li><strong>Subjects:</strong> {{ num_subjects }}</li>
-    <li><strong>Topics:</strong> {{ num_topics }}</li>
-  </ul>
+    <p>
+        {% if subjects %}
+            There are {{ subjects|length }} records:<br/>
+        {% for aSubject in subjects %}
+            <td> {{ aSubject.subject_name }} </td>
+            {% endfor %}
+        {% else %}
+            There are no records in the system
+        {% endif %}
+    </p>
+
+
+     <p>
+        {% if topics %}
+            There are {{ topics|length }} records:<br/>
+        {% for aTopic in topics %}
+            <td> {{ aTopic.topic_name }} </td>
+            {% endfor %}
+        {% else %}
+            There are no records in the system
+        {% endif %}
+    </p>
+
+    <p>
+        {% if Login %}
+            There are {{ Login|length }} records:<br/>
+        {% for aLogin in Login %}
+            <td> {{ aLogin.Login}} </td>
+            {% endfor %}
+        {% else %}
+            This is login in the system
+        {% endif %}
+    </p>
+
+
+     <p>
+        {% if Support %}
+            There are {{ Support|length }} records:<br/>
+        {% for aSupport in Support %}
+            <td> {{ aSupport.Support}} </td>
+            {% endfor %}
+        {% else %}
+            This is Support in the system
+        {% endif %}
+    </p>
+
+
 
 {% endblock %}
+
+
+
+
+
+
