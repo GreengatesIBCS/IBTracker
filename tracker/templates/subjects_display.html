@@ -1,0 +1,18 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <p>this is boring </p>
+{% if subject %}
+    there are {{ subject|length }} Subjects:<br/>
+    <ul>
+    {% for aSubject in subject %}
+    <li> {{ aSubject.subject_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    There are no records in the system
+{% endif %}
+</p>
+
+{% endblock %}
