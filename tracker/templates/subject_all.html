@@ -1,0 +1,29 @@
+{% extends "Base Generic.html" %}
+
+{% block content %}
+
+<h1>Subjects</h1>
+    <p>
+        {% if all_subjects %}
+            There are {{all_subjects|length }} records:<br/>
+            <table>
+            <tr>
+                <th>ID</th>
+                <th>Name of the subject</th>
+                <th>Group of the subject</th>
+            </tr>
+            {% for aSubject in all_subjects %}
+                <tr>
+                <td> {{ aSubject.id }} </td>
+                <td> {{ aSubject.subject_name }} </td>
+                <td> {{ aSubject.subject_group }} </td>
+                </tr>
+            {% endfor %}
+            </table>
+        {%  else %}
+            There are no records in the system
+        {% endif %}
+    </p>
+
+
+{% endblock %}

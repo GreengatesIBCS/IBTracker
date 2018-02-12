@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support</title>
+</head>
+<body>
+<p>help</p>
+</body>
+
+</html>
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Support</h1>
+    <h3>Instructions:</h3>
+    <p>
+•	Go to the Home page
+•	Create an account
+•	Register your subjects</p>
+
+    <h3>After signing in, you will be able to:</h3>
+
+    <p>
+•	Revise your IB topics
+•	Track your process
+•	Do exercises </p>
+    <h3>Frequently asked questions:</h3>
+<p><b>How do I make an account?</b></p>
+<p>Simply click on the "Login" tab on the left of your screen and enter your information.</p>
+<p><b>Who do I contact if its not working?</b></p>
+<p>You can email us any problems or suggestions at: <em>IBtracker@gmail.com</em></p>
+
+</p>
+    <form method="POST" class="Support-form">{% csrf_token %}
+
+{% endblock %}
