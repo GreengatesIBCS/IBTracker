@@ -2,13 +2,23 @@
 from django.conf.urls import url
 from . import views
 
+#Team1: Support
+
 urlpatterns = [
     url(r'^$', views.index,name='index'),
-    url(r'^chose/$', views.subjects_display,name='subjects_display'),
-    url(r'^subject/new/$', views.subject_new,name='subject_new'),
-    url(r'^student/detail/(?P<id>\d+)/$', views.student_detail,name='student_detail'),
-    url(r'^student/subject/(?P<id>\d+)/$', views.Student_subject,name='student_subject'),
-    url (r'^Login/new/$', views.Login_new, name='Login_new'),
-    url (r'^Support/new/$', views.Support_new, name='Support_new'),
+
+#Javi: register
+    url(r'^subject/new/$', views.subject_new, name='subject_new'),
+    url(r'^subject/all/$', views.subject_all, name='subject_all'),
+
+#javi: home page after login
+    url(r'^chose/$', views.subject_display,name='subjects_display'),
+
+    url(r'^student/new/$', views.student_new, name='student_new'),
+    url(r'^student/detail/(?P<id>\d+)/$', views.student_detail, name='student_detail'),
+    url(r'^student/subject/(?P<id>\d+)/$', views.student_subject,name='student_subject'),
+
+    url (r'^login/new/$', views.login_new, name='login_new'),
+    url (r'^support/new/$', views.support_new, name='support_new'),
 
 ]
