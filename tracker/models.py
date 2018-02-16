@@ -9,22 +9,27 @@ class Subject(models.Model):
     class Meta:
         ordering =["subject_name"]
 
-    def __str__(self):
+    def _str_(self):
+#string for representing the MyModelName object (in Admin site etc)
         return self.subject_name
+
+#Topic
 
 class Topic(models.Model):
 
     SCOPE = (
-        ('C','Core'),
-        ('H','High Level'),
-        ('S','Standard Level'),
-    )
-    id = models.IntegerField(primary_key= True,help_text="Unique ID for this particlar topic in the app")
-    topic_name = models.CharField(max_length=60,help_text="Name of the topic to track")
-    subject = models.ForeignKey('Subject',on_delete=models.SET_NULL,null=True)
-    topic_code = models.CharField(max_length=20,help_text="Code for topic")
-    hours = models.IntegerField(validators=[MaxValueValidator(240),MinValueValidator(1)])
-    scope = models.CharField(choices=SCOPE,max_length=1,help_text="Scope of the topic")
+        ('C', 'core'),
+        ('H', 'High Level'),
+        ('S', 'Standard Level'),
+	)
+    #Fields
+    id= models.IntegerField(primary_key=True, help_text="Unique ID for this particular topic")
+    topic_name= models.CharField (max_length=60, help_text= "Name of the topic to track")
+    subject= models.ForeignKey('Subject', on_delete=models.SET_NULL, null=True)
+    topic_code= models.CharField(max_length = 20, help_text="Code for the topic")
+    hours= models.IntegerField(validators= [MaxValueValidator (240), MinValueValidator(1)])
+    scope= models.CharField(choices=SCOPE,max_length=1, help_text="Scope of the topic")
+
 
     class Meta:
         ordering = ["topic_name"]
@@ -45,6 +50,7 @@ class Subtopic(models.Model):
     def __str__(self):
         return self.subtopic_name
 
+#Javi: Register
 
 class Student(models.Model):
 
@@ -70,6 +76,7 @@ class Student(models.Model):
 
     def __str__(self):
         return self.last_name
+
 class Login (models.Model):
     id = models.IntegerField(primary_key=True, help_text="Unique ID for each student", validators=[MaxValueValidator(10000), MinValueValidator(1000)])
     Login_name = models.CharField(max_length=60, help_text="student name")
@@ -85,6 +92,8 @@ class Login (models.Model):
 
     def __str__(self):
         return self.Login_name
+
+#Team1: Support
 
 class Support (models.Model):
     instructions = models.CharField(max_length=60, help_text="last name")
