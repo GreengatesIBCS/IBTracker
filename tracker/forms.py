@@ -33,5 +33,5 @@ class StudentForm(forms.ModelForm):
 class ResourcesForm(forms.ModelForm):
     class Meta:
         model = Resources
-        fields = ('url', 'resource_name', 'subtopic', 'id', 'Resourceid', 'Notes')
+        fields = ('resource_name', 'subtopic', 'id', 'Resourceid')
 

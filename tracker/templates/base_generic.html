@@ -23,12 +23,14 @@
                 <li><a href="{% url 'subject_new' %}"> new subject</a></li>
                 <li><a href="{% url 'student_new' %}"> Register</a></li>
             <!--Team 1: Support-->
+                <li><a href="{% url 'support_new' %}"> Support</a></li>
                 <li><a href="{% url 'subjects_display' %}"> Subjects</a></li>
+                     <li><a href="{% url 'Resources_new' %}"> Resources</a></li>
                 {% if student %}
                 <li><a href="{% url 'student_subject' pk=student.id %}"> Subjects student</a></li>
                 {% endif %}
                 <li><a href="">Option 2</a></li>
-             <li><a href="{% url 'support_new' %}"> Support</a></li>
+
             </ul>
      {% endblock %}
         </div>
