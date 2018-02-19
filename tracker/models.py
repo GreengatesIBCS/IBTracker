@@ -9,7 +9,7 @@ class Subject(models.Model):
     class Meta:
         ordering =["subject_name"]
 
-    def _str_(self):
+    def __str__(self):
 #string for representing the MyModelName object (in Admin site etc)
         return self.subject_name
 
