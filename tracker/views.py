@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Subtopic,Subject,Topic,Student, Login, Support, Resources
-from .forms import SubjectForm,StudentForm, SupportForm, LoginForm, ResourcesForm
-
+from .models import Subtopic,Subject,Topic,Student, Support, Resources
+from .forms import SubjectForm,StudentForm, SupportForm, ResourcesForm
 # Create your views here.
 def index(request):
     num_subject = Subject.objects.all().count()
@@ -13,7 +12,6 @@ def index(request):
     all_topics= Topic.objects.all()
     my_subject = Subject.objects.all()
     subject_name = my_subject[0].subject_name
-    Login_code = Login.objects.all()
     Sub_topic = Subtopic.objects.all().count()
 
     return render(
@@ -62,20 +60,6 @@ def subject_display (request):
                  'name_subject':subject_name,'topics':all_topics,'subject':name_subject},
     )
 
-def login_new (request):
-    if request.method == "POST":
-        #POST, the request
-        form = LoginForm (request.POST)
-        if form.is_valid():
-            Login = form.save(commit=False)
-            Login.save()
-            return redirect('index')
-
-            return redirect('Login_detail', pk=Login.pk)
-    else:
-        form = LoginForm()
-    return render(request, 'Login_edit.html', {'form': form})
-
 #Team1: Support
 def support_new (request):
     if request.method == "POST":
@@ -123,7 +107,6 @@ def student_subject(request, id):
         request,
         'student_record.html',
         context={'student':student,'student_subject':student_subject}
-
     )
 
 def Resources(request):

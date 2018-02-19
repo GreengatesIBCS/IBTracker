@@ -9,7 +9,7 @@ class Subject(models.Model):
     class Meta:
         ordering =["subject_name"]
 
-    def _str_(self):
+    def __str__(self):
 #string for representing the MyModelName object (in Admin site etc)
         return self.subject_name
 
@@ -77,21 +77,6 @@ class Student(models.Model):
     def __str__(self):
         return self.last_name
 
-class Login (models.Model):
-    id = models.IntegerField(primary_key=True, help_text="Unique ID for each student", validators=[MaxValueValidator(10000), MinValueValidator(1000)])
-    Login_name = models.CharField(max_length=60, help_text="student name")
-    last_name = models.CharField(max_length=60, help_text="last name")
-    email = models.CharField(max_length=60, help_text="email")
-    password = models.CharField(max_length=60, help_text="password")
-    Login_code = models.CharField(max_length=20, help_text="Code for the Login")
-    subject = models.ForeignKey('Subject', on_delete=models.SET_NULL, null=True)
-
-
-    class Meta:
-        ordering = ["Login_code"]
-
-    def __str__(self):
-        return self.Login_name
 
 #Team1: Support
 

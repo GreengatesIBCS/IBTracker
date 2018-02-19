@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Subject, Login, Support, Student, Resources
+from .models import Subject, Support, Student, Resources
 
 class SubjectForm(forms.ModelForm):
 
@@ -8,12 +8,6 @@ class SubjectForm(forms.ModelForm):
         model = Subject
         fields = ('subject_name','subject_group',)
 
-
-class LoginForm (forms.ModelForm):
-
-    class Meta:
-        model = Login
-        fields = ('id','Login_code', 'password')
 
 #Team1: Support
 
