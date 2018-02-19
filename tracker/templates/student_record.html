@@ -5,7 +5,7 @@
     <p>Subjects </p>
     <P>
         {% if subject %}
-            there are {{ subject|length }} Sbjects :<br/>
+            there are {{ subject|length }} Subjects :<br/>
         <ul>
         {% for aSubject in subject %}
     <li> <a href="{% url 'subjects_details' pk=aSubject.id %}"> {{ aSubject.subject_name }}</li>

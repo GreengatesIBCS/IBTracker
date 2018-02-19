@@ -9,7 +9,7 @@ class Subject(models.Model):
     class Meta:
         ordering =["subject_name"]
 
-    def _str_(self):
+    def __str__(self):
 #string for representing the MyModelName object (in Admin site etc)
         return self.subject_name
 
@@ -105,5 +105,17 @@ class Support (models.Model):
 
     def __str__(self):
         return self.instructions
+
+class Tracker (models.Model):
+    id = models.IntegerField (primary_key=True, validators=[MaxValueValidator(10000), MinValueValidator(1000)])
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
+    subtopic_id = models.ForeignKey(Subtopic, on_delete=models.CASCADE)
+    covered = models.BooleanField (default=True)
+
+    class Meta:
+        ordering = ["covered"]
+
+    def __str__(self):
+        return self.student_id.first_name + " " + self.student_id.first_name + " " + self.subtopic_id.subtopic_name + " " + str(self.covered)
 
 
