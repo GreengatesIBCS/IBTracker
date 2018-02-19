@@ -21,6 +21,7 @@
 
 .sidebar-nav li a:hover{
     background: #cfd1d0;
+    background-color: #f5f5f5
 }
 
 .container-fluid{
@@ -62,7 +63,4 @@ h1 {
 
 p {
     color: black;
-}
-body{
-    background-color: blue;
 }
