@@ -18,7 +18,6 @@ urlpatterns = [
     url(r'^student/detail/(?P<id>\d+)/$', views.student_detail, name='student_detail'),
     url(r'^student/subject/(?P<id>\d+)/$', views.student_subject,name='student_subject'),
 
-    url (r'^login/new/$', views.login_new, name='login_new'),
     url (r'^support/new/$', views.support_new, name='support_new'),
 
 ]
