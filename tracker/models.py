@@ -92,13 +92,16 @@ class Support (models.Model):
         return self.instructions
 
 class Resources (models.Model):
-    Resourceid= models.IntegerField(primary_key=True, help_text="Unique ID for each resource", validators=[MaxValueValidator(10000), MinValueValidator(1000)])
+    Resourceid= models.IntegerField(primary_key=True, help_text="Unique ID for each resource",)
     resource_name = models.CharField(max_length=60, help_text="Name of the resource")
-    subtopic = models.ForeignKey('subtopic', on_delete=models.SET_NULL, null=True)
+    subtopic = models.ForeignKey('Subtopic', on_delete=models.SET_NULL, null=True)
 
 
     class Meta:
         ordering = ["Resourceid"]
+
+    def __str__(self):
+        return self.subtopic.subtopic_name + " " + self.resource_name
 
 
 
