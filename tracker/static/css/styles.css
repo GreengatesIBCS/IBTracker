@@ -38,6 +38,7 @@
 .col-sm-10{
     padding-left: 50px;
     padding-top: 70px;
+    background-color: lightcyan;
 }
 
 
@@ -53,9 +54,9 @@
 }
 
 h1 {
-    color: red;
+    color: darkblue;
     font-size: 50px;
-    font-family: "Comic Sans MS", "Arial Black", Serif;
+    font-family: "Arial Black",Serif;
 }
 
 
