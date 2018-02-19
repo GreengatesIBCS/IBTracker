@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resources</title>
+</head>
+<body>
+The following resources are available:
+</body>
+</html>
+
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <p>test </p>
+{% if Resources %}
+    there are {{ Resources|length }} Resources:<br/>
+    <ul>
+    {% for aResources in Resources %}
+    <li> {{ aResources.Resources_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    There are no resources in the system
+{% endif %}
+</p>
+
+{% endblock %}

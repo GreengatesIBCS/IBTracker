@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import Subtopic,Subject,Topic,Student, Login, Support
-from .forms import SubjectForm,StudentForm, SupportForm, LoginForm
+from .models import Subtopic,Subject,Topic,Student, Login, Support, Resources
+from .forms import SubjectForm,StudentForm, SupportForm, LoginForm, ResourcesForm
 
 # Create your views here.
 def index(request):
@@ -123,4 +123,19 @@ def student_subject(request, id):
         request,
         'student_record.html',
         context={'student':student,'student_subject':student_subject}
+
     )
+
+def Resources(request):
+        if request.method == "POST":
+            # POST, the request
+            form = ResourcesForm(request.POST)
+            if form.is_valid():
+                Support = form.save(commit=False)
+                Support.save()
+                return redirect('index')
+
+                return redirect('Resources_detail', pk=Resources.pk)
+        else:
+            form = ResourcesForm()
+        return render(request, 'Resources_edit.html', {'form': form})

@@ -21,4 +21,6 @@ urlpatterns = [
     url (r'^login/new/$', views.login_new, name='login_new'),
     url (r'^support/new/$', views.support_new, name='support_new'),
 
+
+    url (r'^Resources/new/$', views.resources_new, name='resources_new')
 ]
