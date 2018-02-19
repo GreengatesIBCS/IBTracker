@@ -135,7 +135,7 @@ def Resources(request):
                 Support.save()
                 return redirect('index')
 
-                return redirect('Resources_detail', pk=Resources.pk)
+                return redirect('resources_detail', pk=resources.pk)
         else:
             form = ResourcesForm()
-        return render(request, 'Resources_edit.html', {'form': form})
+        return render(request, 'resources_edit.html', {'form': form})

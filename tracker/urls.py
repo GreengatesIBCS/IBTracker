@@ -22,5 +22,5 @@ urlpatterns = [
     url (r'^support/new/$', views.support_new, name='support_new'),
 
 
-    url (r'^Resources/new/$', views.resources_new, name='resources_new')
+    url (r'^Resources/new/$', views.Resources, name='resources_new')
 ]
