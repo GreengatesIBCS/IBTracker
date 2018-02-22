@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block title %}<title>IB Tracker</title>{% endblock %}
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<h1>IB Tracker</h1>
+   {% block title %}<title>IB Tracker</title>{% endblock %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
+<!--Javi: subject chose by student-->
 </head>
 <body>
     <div class="container-fluid">
@@ -21,6 +22,7 @@
             <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'subject_new' %}"> new subject</a></li>
                 <li><a href="{% url 'student_new' %}"> Register</a></li>
+            <!--Team 1: Support-->
                 <li><a href="{% url 'subjects_display' %}"> Subjects</a></li>
                 {% if student %}
                 <li><a href="{% url 'student_subject' pk=student.id %}"> Subjects student</a></li>

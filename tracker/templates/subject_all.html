@@ -1,31 +1,16 @@
-{% extends "../../../MyFirstApp/MyApp/templates/Base Generic.html" %}
+{% extends "base_generic.html" %}
 
-
-<!-- Subect_All -->
 {% block content %}
+    <h1>All subjects</h1>
 
-<h1>Subjects</h1>
     <p>
-        {% if all_subjects %}
-            There are {{all_subjects|length }} records:<br/>
-            <table>
-            <tr>
-                <th>ID</th>
-                <th>Name of the subject</th>
-                <th>Group of the subject</th>
-            </tr>
-            {% for aSubject in all_subjects %}
-                <tr>
-                <td> {{ aSubject.id }} </td>
-                <td> {{ aSubject.subject_name }} </td>
-                <td> {{ aSubject.subject_group }} </td>
-                </tr>
+        {% if subjects %}
+            There are {{ subjects|length }} records:<br/>
+        {% for aSubject in subjects %}
+            <td> {{ aSubject.subject_name }} </td>
             {% endfor %}
-            </table>
-        {%  else %}
+        {% else %}
             There are no records in the system
         {% endif %}
     </p>
-
-
 {% endblock %}
