@@ -1,0 +1,19 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <p>test </p>
+{% if Resources %}
+    there are {{ Resources|length }} Resources:<br/>
+    <ul>
+    {% for aResources in Resources %}
+    <li> {{ aResources.Resources_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    There are no resources in the system
+
+{% endif %}
+</p>
+
+{% endblock %}
