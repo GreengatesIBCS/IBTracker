@@ -10,10 +10,7 @@ class Subject(models.Model):
         ordering =["subject_name"]
 
     def __str__(self):
-#string for representing the MyModelName object (in Admin site etc)
         return self.subject_name
-
-#Topic
 
 class Topic(models.Model):
 
@@ -29,7 +26,6 @@ class Topic(models.Model):
     topic_code= models.CharField(max_length = 20, help_text="Code for the topic")
     hours= models.IntegerField(validators= [MaxValueValidator (240), MinValueValidator(1)])
     scope= models.CharField(choices=SCOPE,max_length=1, help_text="Scope of the topic")
-
 
     class Meta:
         ordering = ["topic_name"]
@@ -50,7 +46,6 @@ class Subtopic(models.Model):
     def __str__(self):
         return self.subtopic_name
 
-#Javi: Register
 
 class Student(models.Model):
 
@@ -103,5 +98,17 @@ class Resources (models.Model):
     def __str__(self):
         return self.subtopic.subtopic_name + " " + self.resource_name
 
+
+class Tracker (models.Model):
+    id = models.IntegerField (primary_key=True, validators=[MaxValueValidator(10000), MinValueValidator(1000)])
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
+    subtopic_id = models.ForeignKey(Subtopic, on_delete=models.CASCADE)
+    covered = models.BooleanField (default=True)
+
+    class Meta:
+        ordering = ["covered"]
+
+    def __str__(self):
+        return self.student_id.first_name + " " + self.student_id.first_name + " " + self.subtopic_id.subtopic_name + " " + str(self.covered)
 
 
