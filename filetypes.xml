@@ -4,6 +4,7 @@
     <extensionMap>
       <mapping pattern="CreateCommentsVB" type="PLAIN_TEXT" />
       <mapping pattern="evidence" type="PLAIN_TEXT" />
+      <mapping pattern="SubjectColors" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
